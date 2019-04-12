@@ -1,0 +1,31 @@
+
+$font-stack: Verdana;
+$main-color: #00d3ff;
+$secondary-color: #b25300;
+
+$bold-weight: 700;
+
+button
+    width: 100%;
+    background: transparent;
+    line-height: 50px;
+    color: #fff;
+    border: 0;
+    font-size: 15px;
+    position: relative;
+    &:before
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 50px;
+        background-color: $secondary-color;
+        left: 0;
+        top: 0;
+            
+    // font-weight: 700;
+    &:hover
+        cursor: pointer;
+        background: #d6f7ff;
+        color: #333;
+        &:before
+            background-color: $main-color !important;

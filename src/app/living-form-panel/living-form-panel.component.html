@@ -1,0 +1,5 @@
+<button (click)="addNew()">Add new</button>
+<input type="text" [(ngModel)]="newLivingFormName" />
+<!-- <input type="text" #newLivingFormName />  -->
+
+<app-living-form *ngFor="let living of livingForms" [data]="living">A</app-living-form>

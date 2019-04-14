@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css']
+  selector: "app-navigation",
+  templateUrl: "./navigation.component.html",
+  styleUrls: ["./navigation.component.css"]
 })
 export class NavigationComponent implements OnInit {
   showMenu = false;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
@@ -16,26 +16,19 @@ export class NavigationComponent implements OnInit {
 
 
   toggleMenu() {
-      const menu = document.getElementById('menu');
+      const menu = document.getElementById("menu");
       if (menu) {
           if (!this.showMenu) {
-              menu.classList.add('menu-visible');
+              menu.classList.add("menu-visible");
           } else {
-              menu.classList.remove('menu-visible');
+              menu.classList.remove("menu-visible");
           }
           this.showMenu = !this.showMenu;
       }
   }
 
-  showSimulation() {
-      console.log('SIMULATION');
-      const main = document.querySelector('#main-content');
-      const link = document.getElementById('simulation');
-
-      if (main && link) {
-          main.appendChild(link);
-      } else {
-          console.error('error');
-      }
+  goTo(pageName) {
+      this.router.navigate([pageName]);
+      this.toggleMenu();
   }
 }

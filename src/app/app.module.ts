@@ -25,7 +25,7 @@ import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child
     NavigationComponent,
     NavigationButtonComponent,
     LivingFormComponent,
-    LivingFormPanelComponent
+    LivingFormPanelComponent,
   ],
   imports: [
     FormsModule,

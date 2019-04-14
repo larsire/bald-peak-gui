@@ -1,5 +1,6 @@
-<button (click)="addNew()">Add new</button>
-<input type="text" [(ngModel)]="newLivingFormName" />
-<!-- <input type="text" #newLivingFormName />  -->
+<app-page-window header="Simulation Panel">
+    <button (click)="addNew()">Add new</button>
+    <input type="text" [(ngModel)]="newLivingFormName" />
 
-<app-living-form *ngFor="let living of livingForms" [data]="living">A</app-living-form>
+    <app-living-form *ngFor="let living of livingForms" [data]="living"></app-living-form>
+</app-page-window>

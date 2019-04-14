@@ -13,6 +13,7 @@ import { HomeComponent } from "./home/home.component";
 import { TestPipePipe } from "./test-pipe.pipe";
 import { ChildWithParamComponent } from "./test-page/child-with-param/child-with-param.component";
 import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child-with-no-param.component";
+import { PageWindowComponent } from './page-window/page-window.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child
     NavigationButtonComponent,
     LivingFormComponent,
     LivingFormPanelComponent,
+    PageWindowComponent,
   ],
   imports: [
     FormsModule,

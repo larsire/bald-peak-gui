@@ -11,7 +11,6 @@ export class LivingFormPanelComponent implements OnInit {
   @Output() livingFormAdded = new EventEmitter<{name: string, id: number, creationDate: Date}>();
   livingForms = [];
   newLivingFormName = "";
-  // @ViewChild("newLivingFormName") newLivingFormName: ElementRef;
   ngOnInit() {
   }
 

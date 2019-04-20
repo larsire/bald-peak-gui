@@ -20,10 +20,10 @@ export class LivingFormPanelComponent implements OnInit {
 
   addNew() {
     const livingForm = {name: this.newLivingFormName, id: this.livingForms.length + 1, creationDate: new Date()};
-    this.livingFormAdded.emit(livingForm);
-    this.livingForms.push(livingForm);
-
-    this.newLivingFormName = "";
+    this.simulationAccessService.createNewCreature(livingForm).subscribe((data)=> {
+      this.livingFormAdded.emit(livingForm);
+      this.getList();
+    })
   }
 
   getList() {

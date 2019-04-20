@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppComponent } from "./app.component";
 import { NavigationComponent } from "./navigation/navigation.component";
@@ -13,7 +14,7 @@ import { HomeComponent } from "./home/home.component";
 import { TestPipePipe } from "./test-pipe.pipe";
 import { ChildWithParamComponent } from "./test-page/child-with-param/child-with-param.component";
 import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child-with-no-param.component";
-import { PageWindowComponent } from './page-window/page-window.component';
+import { PageWindowComponent } from "./page-window/page-window.component";
 
 @NgModule({
   declarations: [
@@ -32,9 +33,10 @@ import { PageWindowComponent } from './page-window/page-window.component';
   imports: [
     FormsModule,
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

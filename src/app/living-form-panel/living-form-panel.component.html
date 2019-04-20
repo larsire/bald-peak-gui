@@ -3,4 +3,5 @@
     <input type="text" [(ngModel)]="newLivingFormName" />
 
     <app-living-form *ngFor="let living of livingForms" [data]="living"></app-living-form>
+    <button (click)="getList()">Test</button> 
 </app-page-window>

@@ -1,0 +1,7 @@
+<app-page-window header="Simulation Panel" class="test">
+    <button (click)="addNew()">Add new</button>
+    <button (click)="getList()">Test</button>
+    <input type="text" [(ngModel)]="newLivingFormName" />
+
+    <app-creature *ngFor="let creature of creatures" [data]="living"></app-creature>
+</app-page-window>

@@ -3,5 +3,5 @@
     <button (click)="getList()">Test</button>
     <input type="text" [(ngModel)]="newLivingFormName" />
 
-    <app-creature *ngFor="let creature of creatures" [data]="living"></app-creature>
+    <app-creature *ngFor="let creature of creatures" [data]="creature"></app-creature>
 </app-page-window>

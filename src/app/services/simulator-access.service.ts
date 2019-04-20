@@ -13,7 +13,6 @@ export class SimulatorAccessService {
   }
 
   getObjectList() {
-    return this.http.get("http://localhost:3000").subscribe((data) => {
-    });
+    return this.http.get("http://localhost:3000");
   }
 }

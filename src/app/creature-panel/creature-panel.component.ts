@@ -12,14 +12,14 @@ export class CreaturePanelComponent implements OnInit {
 
   constructor(private simulationAccessService: SimulatorAccessService) { }
   @Output() livingFormAdded = new EventEmitter<{name: string, id: number, creationDate: Date}>();
-  livingForms = [];
+  creatures = [];
   newLivingFormName = "";
 
   ngOnInit() {
   }
 
   addNew() {
-    const livingForm = {name: this.newLivingFormName, id: this.livingForms.length + 1, creationDate: new Date()};
+    const livingForm = {name: this.newLivingFormName, id: this.creatures.length + 1, creationDate: new Date()};
     this.simulationAccessService.createNewCreature(livingForm).subscribe((data) => {
       this.livingFormAdded.emit(livingForm);
       this.getList();
@@ -27,6 +27,9 @@ export class CreaturePanelComponent implements OnInit {
   }
 
   getList() {
-    this.simulationAccessService.getObjectList();
+    this.simulationAccessService.getObjectList().subscribe((data) => {
+      console.log(data);
+      this.creatures = data;
+    });
   }
 }

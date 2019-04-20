@@ -4,7 +4,7 @@ import { TestPageComponent } from "./test-page/test-page.component";
 import { ChildWithParamComponent } from "./test-page/child-with-param/child-with-param.component";
 import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child-with-no-param.component";
 import { HomeComponent } from "./home/home.component";
-import { LivingFormPanelComponent } from "./living-form-panel/living-form-panel.component";
+import { CreaturePanelComponent } from "./creature-panel/creature-panel.component";
 
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
     }
   ]},
   { path: "home", component: HomeComponent },
-  { path: "simulation", component: LivingFormPanelComponent },
+  { path: "simulation", component: CreaturePanelComponent },
   { path: "**",   redirectTo: "/home", pathMatch: "full" }
 ];
 

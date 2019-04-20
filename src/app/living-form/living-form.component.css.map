@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAIA,AAAA,YAAY,CAAC;EACT,OAAO,EAAE,GAAG;EACZ,MAAM,EAAE,GAAG,CAAC,KAAK,CALR,OAAO;EAMhB,WAAW,EAAE,IAAI;EACjB,MAAM,EAAE,GAAG;EACX,aAAa,EAAE,GAAG;EAClB,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;CAEH;;AAV/B,AASI,YATQ,CASR,GAAG,CAAC;EACA,UAAU,EAAE,MAAM;CAAG",
-    "sources": [
-        "living-form.component.sass"
-    ],
-    "names": [],
-    "file": "living-form.component.css"
-}

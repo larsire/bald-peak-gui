@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, ViewChild } from "@angular/core";
 import { access } from "fs";
+import { Socket } from "ngx-socket-io";
 import { SimulatorAccessService } from "../services/simulator-access.service";
 
 @Component({
@@ -10,25 +11,30 @@ import { SimulatorAccessService } from "../services/simulator-access.service";
 })
 export class CreaturePanelComponent implements OnInit {
 
-  constructor(private simulationAccessService: SimulatorAccessService) { }
-  @Output() livingFormAdded = new EventEmitter<{name: string, id: number, creationDate: Date}>();
+  constructor(private simulationAccessService: SimulatorAccessService, private socket: Socket) {
+    this.getList();
+    this.creature = {};
+    this.socket.on("updateCreatureList", (data) => {
+      this.creatures = data;
+    });
+   }
+  @Output() livingFormAdded = new EventEmitter<{}>();
+
   creatures = [];
-  newLivingFormName = "";
+  creature: {};
 
   ngOnInit() {
   }
 
   addNew() {
-    const livingForm = {name: this.newLivingFormName, id: this.creatures.length + 1, creationDate: new Date()};
-    this.simulationAccessService.createNewCreature(livingForm).subscribe((data) => {
-      this.livingFormAdded.emit(livingForm);
-      this.getList();
+    this.simulationAccessService.createNewCreature(this.creature).subscribe((data) => {
+      this.creature = {};
+      this.livingFormAdded.emit(this.creature);
     });
   }
 
   getList() {
-    this.simulationAccessService.getObjectList().subscribe((data) => {
-      console.log(data);
+    this.simulationAccessService.getObjectList().subscribe((data: any) => {
       this.creatures = data;
     });
   }

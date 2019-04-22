@@ -3,6 +3,9 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
+
+const config: SocketIoConfig = { url: "http://localhost:3000", options: {} };
 
 import { AppComponent } from "./app.component";
 import { NavigationComponent } from "./navigation/navigation.component";
@@ -34,6 +37,7 @@ import { PageWindowComponent } from "./page-window/page-window.component";
     FormsModule,
     AppRoutingModule,
     BrowserModule,
+    SocketIoModule.forRoot(config),
     HttpClientModule
   ],
   providers: [HttpClient],

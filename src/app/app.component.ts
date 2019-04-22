@@ -8,7 +8,7 @@ import { Component, Input } from "@angular/core";
 export class AppComponent {
   title = "angular-electron";
 
-  onLivingFormAdded(livingForm: {name: string, id: number, creationDate: Date}) {
+  onLivingFormAdded(livingForm: {}) {
     console.log("Added successfully : ", livingForm);
   }
 }

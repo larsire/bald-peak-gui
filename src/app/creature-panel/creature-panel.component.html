@@ -1,7 +1,16 @@
-<app-page-window header="Simulation Panel" class="test">
+<app-page-window header="Simulation Panel" class="simulation-panel">
     <button (click)="addNew()">Add new</button>
     <button (click)="getList()">Test</button>
     <input type="text" [(ngModel)]="creature.name" />
 
+    <div class="simulation-panel__creature-header">
+        <div>Id</div>
+        <div>Name</div>
+        <div>Position</div>
+        <div>Lifetime</div>
+        <div>Age</div>
+        <div>isAlive</div>
+        <div>Actions</div>
+    </div>
     <app-creature *ngFor="let creature of creatures" [data]="creature"></app-creature>
 </app-page-window>

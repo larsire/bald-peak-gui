@@ -15,4 +15,8 @@ export class SimulatorAccessService {
   getObjectList() {
     return this.http.get("http://localhost:3000");
   }
+
+  moveCreature(moveObject) {
+    return this.http.post("http://localhost:3000/creature/move", moveObject);
+  }
 }

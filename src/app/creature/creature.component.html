@@ -1,7 +1,14 @@
 <div class="creature">
     <div>{{data.id}}</div>
     <div>{{data.name}}</div>
+    <div>{{data.position.axisX}}, {{data.position.axisY}}</div>
     <div>{{data.lifeTime}}</div>
     <div>{{data.age}}</div>
     <div>{{data.isAlive}}</div>
+    <div>
+        <span (click)="moveCreature('UP')">^</span>&nbsp;
+        <span (click)="moveCreature('RIGHT')">></span>&nbsp;
+        <span (click)="moveCreature('DOWN')">v</span>&nbsp;
+        <span (click)="moveCreature('LEFT')"><</span>&nbsp;  
+    </div>
 </div>

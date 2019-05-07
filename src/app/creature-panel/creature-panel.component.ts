@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output, ViewChild } from "@angular/core";
-import { access } from "fs";
 import { Socket } from "ngx-socket-io";
 import { SimulatorAccessService } from "../services/simulator-access.service";
 

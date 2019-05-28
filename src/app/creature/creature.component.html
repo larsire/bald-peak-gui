@@ -1,14 +1,18 @@
-<div class="creature">
-    <div>{{data.id}}</div>
-    <div>{{data.name}}</div>
-    <div>{{data.position.axisX}}, {{data.position.axisY}}</div>
-    <div>{{data.lifeTime}}</div>
-    <div>{{data.age}}</div>
-    <div>{{data.isAlive}}</div>
-    <div>
-        <button (click)="moveCreature('UP')"><i class="fas fa-angle-up"></i></button>
-        <button (click)="moveCreature('RIGHT')"><i class="fas fa-angle-right"></i></button>
-        <button (click)="moveCreature('DOWN')"><i class="fas fa-angle-down"></i></button>
-        <button (click)="moveCreature('LEFT')"><i class="fas fa-angle-left"></i></button>
+<div class="creature" (click)="toggleInventory()">
+    <div class="creature__baseData">
+        <div>{{data.id}}</div>
+        <div>{{data.name}}</div>
+        <div>{{data.position.axisX}}, {{data.position.axisY}}</div>
+        <div>{{data.lifeTime}}</div>
+        <div>{{data.age}}</div>
+        <div>{{data.isAlive}}</div>
+        <div>
+            <button (click)="moveCreature('UP')"><i class="fas fa-angle-up"></i></button>
+            <button (click)="moveCreature('RIGHT')"><i class="fas fa-angle-right"></i></button>
+            <button (click)="moveCreature('DOWN')"><i class="fas fa-angle-down"></i></button>
+            <button (click)="moveCreature('LEFT')"><i class="fas fa-angle-left"></i></button>
+        </div>
     </div>
+    <app-creature-inventory [inventory]="data.inventory" *ngIf="inventoryVisible">
+    </app-creature-inventory>
 </div>

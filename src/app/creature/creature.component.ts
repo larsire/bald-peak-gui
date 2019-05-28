@@ -9,8 +9,14 @@ import { SimulatorAccessService } from "../services/simulator-access.service";
 export class CreatureComponent implements OnInit {
   @Input() data: { name: string, id: number, creationDate: Date};
   constructor(private simulationAccessService: SimulatorAccessService) { }
+  inventoryVisible = false;
+
 
   ngOnInit() {
+  }
+
+  toggleInventory() {
+    this.inventoryVisible = !this.inventoryVisible;
   }
 
   moveCreature(direction) {

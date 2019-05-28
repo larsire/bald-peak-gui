@@ -14,10 +14,10 @@ export class CreaturePanelComponent implements OnInit {
     this.getList();
     this.creature = {};
     this.socket.on("updateCreatureList", (data) => {
+      console.log("Received creature list : ", data);
       this.creatures = data;
     });
    }
-  @Output() livingFormAdded = new EventEmitter<{}>();
 
   creatures = [];
   creature: {};
@@ -28,7 +28,15 @@ export class CreaturePanelComponent implements OnInit {
   addNew() {
     this.simulationAccessService.createNewCreature(this.creature).subscribe((data) => {
       this.creature = {};
-      this.livingFormAdded.emit(this.creature);
+    });
+  }
+
+  addNewObstacle() {
+    const obstacle = {
+      axisX: Math.ceil(Math.random() % 10 * 10),
+      axisY: Math.ceil(Math.random() % 10 * 10)
+    };
+    this.simulationAccessService.addNewObstacle(obstacle).subscribe((data) => {
     });
   }
 

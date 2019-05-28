@@ -18,6 +18,7 @@ import { TestPipePipe } from "./test-pipe.pipe";
 import { ChildWithParamComponent } from "./test-page/child-with-param/child-with-param.component";
 import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child-with-no-param.component";
 import { PageWindowComponent } from "./page-window/page-window.component";
+import { CreatureInventoryComponent } from './creature-inventory/creature-inventory.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PageWindowComponent } from "./page-window/page-window.component";
     CreatureComponent,
     CreaturePanelComponent,
     PageWindowComponent,
+    CreatureInventoryComponent,
   ],
   imports: [
     FormsModule,

@@ -19,4 +19,8 @@ export class SimulatorAccessService {
   moveCreature(moveObject) {
     return this.http.post("http://localhost:3000/creature/move", moveObject);
   }
+
+  addNewObstacle(obstacle) {
+    return this.http.post("http://localhost:3000/obstacle/add/", obstacle);
+  }
 }

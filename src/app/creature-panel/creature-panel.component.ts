@@ -17,10 +17,11 @@ export class CreaturePanelComponent implements OnInit {
       console.log("Received creature list : ", data);
       this.creatures = data;
     });
-   }
+  }
 
   creatures = [];
   creature: {};
+  openObjects = [];
 
   ngOnInit() {
   }
@@ -44,5 +45,17 @@ export class CreaturePanelComponent implements OnInit {
     this.simulationAccessService.getObjectList().subscribe((data: any) => {
       this.creatures = data;
     });
+  }
+
+  checkIfOpen(obj) {
+    return this.openObjects.indexOf(obj) > -1;
+  }
+
+  toggleObject(obj) {
+    if (this.openObjects.indexOf(obj.id) > -1) {
+      this.openObjects.splice(this.openObjects.indexOf(obj.id), 1);
+    } else {
+      this.openObjects.push(obj.id);
+    }
   }
 }

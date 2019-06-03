@@ -1,3 +1,3 @@
-<p>
-  {{'home works!' | testPipe}}
-</p>
+<app-page-window header="Simulation Panel" class="simulation-panel">
+  <button *ngFor="let page of pages" (click)="goTo(page)">{{page}}</button>
+</app-page-window>

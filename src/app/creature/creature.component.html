@@ -1,4 +1,4 @@
-<div class="creature" (click)="toggleInventory()">
+<div class="creature">
     <div class="creature__baseData">
         <div>{{data.id}}</div>
         <div>{{data.name}}</div>
@@ -13,6 +13,6 @@
             <button (click)="moveCreature('LEFT')"><i class="fas fa-angle-left"></i></button>
         </div>
     </div>
-    <app-creature-inventory [inventory]="data.inventory" *ngIf="inventoryVisible">
+    <app-creature-inventory [inventory]="inventory" *ngIf="isOpen">
     </app-creature-inventory>
 </div>

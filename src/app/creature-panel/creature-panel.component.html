@@ -12,5 +12,5 @@
         <div>isAlive</div>
         <div>Actions</div>
     </div>
-    <app-creature *ngFor="let creature of creatures" [data]="creature"></app-creature>
+    <app-creature *ngFor="let creature of creatures" [data]="creature" [isOpen]="checkIfOpen(creature.id)" (click)="toggleObject(creature)"></app-creature>
 </app-page-window>

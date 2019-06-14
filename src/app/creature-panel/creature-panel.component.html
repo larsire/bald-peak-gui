@@ -1,16 +1,23 @@
-<app-page-window header="Simulation Panel" class="simulation-panel">
-    <button (click)="addNew()">Add creature</button>
-    <input type="text" [(ngModel)]="creature.name" />
-    <button (click)="addNewObstacle()">Add obstacle</button>
-
-    <div class="simulation-panel__creature-header">
-        <div>Id</div>
-        <div>Name</div>
-        <div>Position</div>
-        <div>Lifetime</div>
-        <div>Age</div>
-        <div>isAlive</div>
-        <div>Actions</div>
+<div class="simulation-panel">
+    <div class="simulation-panel__creature-controls">
+        <div class="simulation-panel__creature-controls__section">
+            <button mat-raised-button color="primary" (click)="addNew()">Add creature</button>
+            <input type="text" [(ngModel)]="creature.name" />
+        </div>
+        <div class="simulation-panel__creature-controls__section">
+            <button mat-raised-button color="primary" (click)="addNewObstacle()">Add obstacle</button>
+        </div>
     </div>
-    <app-creature *ngFor="let creature of creatures" [data]="creature" [isOpen]="checkIfOpen(creature.id)" (click)="toggleObject(creature)"></app-creature>
-</app-page-window>
+    <table>
+        <tr class="simulation-panel__creature-header">
+            <td>Id</td>
+            <td>Name</td>
+            <td>Position</td>
+            <td>Lifetime</td>
+            <td>Age</td>
+            <td>isAlive</td>
+            <td>Actions</td>
+        </tr>
+        <tr creature *ngFor="let creature of creatures" (click)="toggleObject(creature)" [data]="creature" [isOpen]="checkIfOpen(creature.id)"></tr>
+    </table>
+</div>

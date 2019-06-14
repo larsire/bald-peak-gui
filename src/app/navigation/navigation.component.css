@@ -6,45 +6,22 @@ body {
 
 nav {
   height: 100vh;
-  width: 300px;
-  top: 0;
-  display: block;
-  margin-left: -300px;
-  background: #333;
+  width: 50px;
+  display: inline-block;
+  float: left;
+  background: #fff;
   border-right: 2px solid #00d3ff;
   color: #fff;
   font-weight: 700;
-  font-size: 20px;
-  position: fixed;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-nav .toggleButton {
-  position: absolute;
-  width: 90px;
-  height: 30px;
-  color: white;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  background: #333;
-  border: 2px solid #00d3ff;
-  border-bottom: 0;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  text-align: center;
-  line-height: 30px;
-  top: 0;
-  bottom: 0;
-  right: -59px;
-  margin: auto;
-}
-
-nav .toggleButton:focus {
-  outline: 0;
-}
-
-nav.menu-visible {
-  margin-left: 0;
+nav button {
+  font-size: 1.5em;
+  width: 50px;
+  border: 0;
+  background: 0;
+  height: 50px;
 }
 /*# sourceMappingURL=navigation.component.css.map */

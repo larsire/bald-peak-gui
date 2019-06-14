@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { SimulatorAccessService } from "../services/simulator-access.service";
 
 @Component({
-  selector: "app-creature",
+  selector: "[creature]",
   templateUrl: "./creature.component.html",
   styleUrls: ["./creature.component.css"]
 })
@@ -21,7 +21,10 @@ export class CreatureComponent implements OnInit {
   ngOnInit() {
   }
 
-  moveCreature(direction) {
+  moveCreature(event, direction) {
+    event.preventDefault();
+    event.stopPropagation();
+
     const moveObject = {
       direction: direction,
       id: this.data.id

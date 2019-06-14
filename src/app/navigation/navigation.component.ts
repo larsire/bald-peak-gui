@@ -6,7 +6,6 @@ import { Router } from "@angular/router";
   styleUrls: ["./navigation.component.css"]
 })
 export class NavigationComponent implements OnInit {
-  showMenu = false;
 
   constructor(private router: Router) {
   }
@@ -14,21 +13,7 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  toggleMenu() {
-      const menu = document.getElementById("menu");
-      if (menu) {
-          if (!this.showMenu) {
-              menu.classList.add("menu-visible");
-          } else {
-              menu.classList.remove("menu-visible");
-          }
-          this.showMenu = !this.showMenu;
-      }
-  }
-
   goTo(pageName) {
       this.router.navigate([pageName]);
-      this.toggleMenu();
   }
 }

@@ -1,11 +1,8 @@
 <nav id="menu">
     <div class="nav-content">
-        <button class="toggleButton" (click)="toggleMenu()">
-            Menu
-        </button>
         <div class="buttonList">
-            <app-navigation-button (click)="goTo('simulation')" label="Simulation"></app-navigation-button>
-            <app-navigation-button (click)="goTo('contact')" label="Contact"></app-navigation-button>
+            <button type="button" (click)="goTo('simulation')"><i class="icon-gamepad"></i></button>
+            <button type="button" (click)="goTo('contact')"><i class="icon-mail"></i></button>
         </div>
     </div>
 </nav>

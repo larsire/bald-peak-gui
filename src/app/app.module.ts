@@ -13,14 +13,14 @@ import { AppComponent } from "./app.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { CreatureComponent } from "./creature/creature.component";
 import { CreaturePanelComponent } from "./creature-panel/creature-panel.component";
-import { TestPageComponent } from "./test-page/test-page.component";
+import { TestPageComponent } from "./playground/test-page/test-page.component";
 import { HomeComponent } from "./home/home.component";
 import { TestPipePipe } from "./test-pipe.pipe";
-import { ChildWithParamComponent } from "./test-page/child-with-param/child-with-param.component";
-import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child-with-no-param.component";
+import { ChildWithParamComponent } from "./playground/test-page/child-with-param/child-with-param.component";
+import { ChildWithNoParamComponent } from "./playground/test-page/child-with-no-param/child-with-no-param.component";
 import { CreatureInventoryComponent } from "./creature-inventory/creature-inventory.component";
 import { PlaygroundComponent } from "./playground/playground.component";
-import { AnimationsComponent } from './playground/animations/animations.component';
+import { AnimationsComponent } from "./playground/animations/animations.component";
 
 @NgModule({
   declarations: [

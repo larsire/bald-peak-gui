@@ -20,7 +20,8 @@ export class AppComponent {
   }
 
   prepareRoute(outlet: RouterOutlet) {
-    return outlet.activatedRouteData["animation"];
+    console.log(outlet);
+    return outlet.isActivated && outlet.activatedRouteData["animation"] ? outlet.activatedRoute : "";
   }
 
   animationStarted(event) {

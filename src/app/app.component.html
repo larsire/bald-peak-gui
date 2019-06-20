@@ -1,6 +1,6 @@
 <div>
     <app-navigation></app-navigation>
-    <main [@routeAnimations]="outlet.isActivated ? outlet.activatedRoute : ''" class="page">
+    <main [@routeAnimations]="prepareRoute(outlet)" class="page">
         <router-outlet #outlet="outlet"></router-outlet>
     </main>
 </div>

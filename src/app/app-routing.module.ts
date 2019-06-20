@@ -6,23 +6,25 @@ import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child
 import { HomeComponent } from "./home/home.component";
 import { CreaturePanelComponent } from "./creature-panel/creature-panel.component";
 import { PlaygroundComponent } from "./playground/playground.component";
+import { AnimationsComponent } from "./playground/animations/animations.component";
 
 const routes: Routes = [
-  { path: "test", component: TestPageComponent,
-  children: [
-    {
-      path: "",
-      component: ChildWithNoParamComponent
-    },
-    {
-      path: ":id",
-      component: ChildWithParamComponent
-    }
+  { path: "home", component: HomeComponent, data: { animation: "slideIn" }  },
+  { path: "simulation", component: CreaturePanelComponent, data: { animation: "slideIn" }  },
+  { path: "playground", component: PlaygroundComponent, data: { animation: "slideIn" }, children: [
+    { path: "animations", component: AnimationsComponent, data: { animation: "fadeIn"}},
+    { path: "test", component: TestPageComponent, data: { animation: "fadeIn" }, children: [
+        {
+          path: "",
+          component: ChildWithNoParamComponent
+        },
+        {
+          path: ":id",
+          component: ChildWithParamComponent
+        }
+      ]}
   ]},
-  { path: "home", component: HomeComponent},
-  { path: "simulation", component: CreaturePanelComponent},
-  { path: "playground", component: PlaygroundComponent},
-  { path: "**",   redirectTo: "/home", pathMatch: "full"}
+  { path: "**",   redirectTo: "/home", pathMatch: "full", data: { animation: "slideIn" }  }
 ];
 
 @NgModule({

@@ -20,6 +20,7 @@ import { ChildWithParamComponent } from "./test-page/child-with-param/child-with
 import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child-with-no-param.component";
 import { CreatureInventoryComponent } from "./creature-inventory/creature-inventory.component";
 import { PlaygroundComponent } from "./playground/playground.component";
+import { AnimationsComponent } from './playground/animations/animations.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PlaygroundComponent } from "./playground/playground.component";
     CreaturePanelComponent,
     CreatureInventoryComponent,
     PlaygroundComponent,
+    AnimationsComponent,
   ],
   imports: [
     FormsModule,

@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  pages = ["simulation", "contact"];
+  pages = ["simulation", "contact", "playground"];
 
   ngOnInit() {
   }

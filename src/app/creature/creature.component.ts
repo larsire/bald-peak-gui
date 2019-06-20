@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { SimulatorAccessService } from "../services/simulator-access.service";
 
 @Component({
-  selector: "[creature]",
+  selector: "app-creature",
   templateUrl: "./creature.component.html",
   styleUrls: ["./creature.component.css"]
 })

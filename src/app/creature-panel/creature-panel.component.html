@@ -8,16 +8,6 @@
             <button mat-raised-button color="primary" (click)="addNewObstacle()">Add obstacle</button>
         </div>
     </div>
-    <table>
-        <tr class="simulation-panel__creature-header">
-            <td>Id</td>
-            <td>Name</td>
-            <td>Position</td>
-            <td>Lifetime</td>
-            <td>Age</td>
-            <td>isAlive</td>
-            <td>Actions</td>
-        </tr>
-        <tr creature *ngFor="let creature of creatures" (click)="toggleObject(creature)" [data]="creature" [isOpen]="checkIfOpen(creature.id)"></tr>
-    </table>
+    
+        <app-creature *ngFor="let creature of creatures" (click)="toggleObject(creature)" [data]="creature" [isOpen]="checkIfOpen(creature.id)"></app-creature>
 </div>

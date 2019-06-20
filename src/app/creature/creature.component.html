@@ -1,18 +1,24 @@
-<!-- <div class="creature"> -->
-    <!-- <div class="creature__baseData"> -->
-        <td>{{data.id}}</td>
-        <td>{{data.name}}</td>
-        <td>{{data.position.axisX}}, {{data.position.axisY}}</td>
-        <td>{{data.lifeTime}}</td>
-        <td>{{data.age}}</td>
-        <td>{{data.isAlive}}</td>
-        <td>
+<div class="creature" [ngClass]="{'not-alive': !data.isAlive}" >
+    <div> 
+        <div>
+            <img *ngIf="data.type === 'obstacle'" src="../../assets/images/Snow mountain free icon 1.svg">
+            <img *ngIf="data.type === 'creature'" src="../../assets/images/image2vector.svg">
+        </div>
+        <div class="id-label">
+            {{data.id}}
+        </div>
+    </div>
+    <div>
+        {{data.name}}
+    </div>
+    <div>
+            {{data.age || 0}}/{{data.lifeTime || 0}}
+    </div>
+    <div>{{data.position.axisX}}, {{data.position.axisY}}</div>
+    <div *ngIf="data.isAlive">
             <button (click)="moveCreature($event, 'UP')"><i class="fas fa-angle-up"></i></button>
             <button (click)="moveCreature($event, 'RIGHT')"><i class="fas fa-angle-right"></i></button>
             <button (click)="moveCreature($event, 'DOWN')"><i class="fas fa-angle-down"></i></button>
             <button (click)="moveCreature($event, 'LEFT')"><i class="fas fa-angle-left"></i></button>
-        </td>
-    <!-- </div> -->
-    <!-- <app-creature-inventory [inventory]="inventory" *ngIf="isOpen"> -->
-    <!-- </app-creature-inventory> -->
-<!-- </div> -->
+    </div>
+</div>

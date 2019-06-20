@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
+import { RouterOutlet, Router } from "@angular/router";
 import { slideInAnimation } from "./animations/animations";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-root",

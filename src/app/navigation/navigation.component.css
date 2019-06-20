@@ -8,11 +8,14 @@ nav {
   height: 100vh;
   width: 50px;
   display: inline-block;
-  float: left;
   background: #fff;
   border-right: 2px solid #00d3ff;
   color: #fff;
   font-weight: 700;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }

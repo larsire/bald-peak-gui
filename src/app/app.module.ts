@@ -5,6 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
 import { MatButtonModule, MatCheckboxModule } from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const config: SocketIoConfig = { url: "http://localhost:3000", options: {} };
 
@@ -18,6 +19,7 @@ import { TestPipePipe } from "./test-pipe.pipe";
 import { ChildWithParamComponent } from "./test-page/child-with-param/child-with-param.component";
 import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child-with-no-param.component";
 import { CreatureInventoryComponent } from "./creature-inventory/creature-inventory.component";
+import { PlaygroundComponent } from "./playground/playground.component";
 
 @NgModule({
   declarations: [
@@ -31,11 +33,13 @@ import { CreatureInventoryComponent } from "./creature-inventory/creature-invent
     CreatureComponent,
     CreaturePanelComponent,
     CreatureInventoryComponent,
+    PlaygroundComponent,
   ],
   imports: [
     FormsModule,
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     SocketIoModule.forRoot(config),
     HttpClientModule,
     MatButtonModule,

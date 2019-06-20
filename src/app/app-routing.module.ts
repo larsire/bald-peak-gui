@@ -5,7 +5,7 @@ import { ChildWithParamComponent } from "./test-page/child-with-param/child-with
 import { ChildWithNoParamComponent } from "./test-page/child-with-no-param/child-with-no-param.component";
 import { HomeComponent } from "./home/home.component";
 import { CreaturePanelComponent } from "./creature-panel/creature-panel.component";
-
+import { PlaygroundComponent } from "./playground/playground.component";
 
 const routes: Routes = [
   { path: "test", component: TestPageComponent,
@@ -19,9 +19,10 @@ const routes: Routes = [
       component: ChildWithParamComponent
     }
   ]},
-  { path: "home", component: HomeComponent },
-  { path: "simulation", component: CreaturePanelComponent },
-  { path: "**",   redirectTo: "/home", pathMatch: "full" }
+  { path: "home", component: HomeComponent},
+  { path: "simulation", component: CreaturePanelComponent},
+  { path: "playground", component: PlaygroundComponent},
+  { path: "**",   redirectTo: "/home", pathMatch: "full"}
 ];
 
 @NgModule({

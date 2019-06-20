@@ -1,13 +1,18 @@
 @import "../../assets/constants.sass";
     
 .simulation-panel
-    padding: 10px 10px 10px 60px;
-    .simulation-panel__creature-header
-        padding: 5px;
-        border: 1px solid $main-color;
-        font-weight: bold;
-        margin: 5px;
-        border-radius: 3px;
+    .simulation-panel__creature-header 
+        td
+            border: 1px solid $main-color;
+            border-left: 0;
+            border-right: 0;
+            font-weight: bold;
+            margin: 5px;
+            border-radius: 3px;
+            &:first-child
+                border-left: 1px solid $main-color;
+            &:last-child
+                border-right: 1px solid $main-color;
     .simulation-panel__creature-controls 
         height: 50px;
         border-bottom: 1px solid #ddd;
@@ -22,4 +27,6 @@
             min-width: 300px;
     table
         width: 100%;
+        border-spacing: 0px;
+        border-collapse: collapse;
         

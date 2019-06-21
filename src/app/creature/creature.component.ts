@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { SimulatorAccessService } from "../services/simulator-access.service";
 
 @Component({
@@ -6,9 +6,12 @@ import { SimulatorAccessService } from "../services/simulator-access.service";
   templateUrl: "./creature.component.html",
   styleUrls: ["./creature.component.css"]
 })
+
 export class CreatureComponent implements OnInit {
   @Input() data: { name: string, id: number, creationDate: Date, inventory: any };
-  @Input() isOpen: boolean;
+  @Input() showExtendedData: boolean;
+  @Output() refreshComponent = new EventEmitter();
+
   constructor(private simulationAccessService: SimulatorAccessService) {
       this.inventory = new Array<any>();
       for (let i = 0; i < 10; i++) {

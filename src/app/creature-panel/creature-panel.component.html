@@ -8,6 +8,11 @@
             <button mat-raised-button color="primary" (click)="addNewObstacle()">Add obstacle</button>
         </div>
     </div>
-    
-        <app-creature *ngFor="let creature of creatures" (click)="toggleObject(creature)" [data]="creature" [isOpen]="checkIfOpen(creature.id)"></app-creature>
+
+    <app-creature 
+        *ngFor="let creature of creatures" 
+        [data]="creature"
+        (refreshComponent)="refresh()" 
+        [showExtendedData]="isOpened(creature.id)"
+        (click)="toggleExtendedData(creature.id)"></app-creature>
 </div>

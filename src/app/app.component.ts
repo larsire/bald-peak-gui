@@ -21,7 +21,6 @@ export class AppComponent {
   }
 
   prepareRoute(outlet: RouterOutlet) {
-    console.log(outlet);
     return outlet.isActivated && outlet.activatedRouteData["animation"] ? outlet.activatedRoute : "";
   }
 

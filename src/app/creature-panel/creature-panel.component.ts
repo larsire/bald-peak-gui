@@ -1,6 +1,8 @@
-import { Component, OnInit, EventEmitter, Output, ViewChild } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { Socket } from "ngx-socket-io";
 import { SimulatorAccessService } from "../services/simulator-access.service";
+import { Subscription } from "rxjs";
+import { first } from "rxjs/operators";
 
 @Component({
   selector: "app-creature-panel",
@@ -9,26 +11,35 @@ import { SimulatorAccessService } from "../services/simulator-access.service";
   providers: [SimulatorAccessService]
 })
 export class CreaturePanelComponent implements OnInit {
-
-  constructor(private simulationAccessService: SimulatorAccessService, private socket: Socket) {
-    this.getList();
+  constructor(private simulationAccessService: SimulatorAccessService, private socket: Socket, private ref: ChangeDetectorRef) {
     this.creature = {};
+    this.openedCreaturesData = [];
     this.socket.on("updateCreatureList", (data) => {
-      console.log("Received creature list : ", data);
-      this.creatures = data;
+      this.tempData = data;
     });
+
+    setInterval(() => {
+      if (this.tempData.length) {
+        this.creatures = [...this.tempData];
+        this.tempData = [];
+      }
+    }, 1000);
   }
 
+  tempData = [];
+  simulationSubscription: Subscription;
   creatures = [];
   creature: {};
-  openObjects = [];
+  openedCreaturesData: any[];
 
   ngOnInit() {
+    this.getListAndUpdate();
   }
 
   addNew() {
-    this.simulationAccessService.createNewCreature(this.creature).subscribe((data) => {
+    this.simulationAccessService.createNewCreature(this.creature).pipe(first()).subscribe(() => {
       this.creature = {};
+      this.getListAndUpdate();
     });
   }
 
@@ -37,25 +48,34 @@ export class CreaturePanelComponent implements OnInit {
       axisX: Math.ceil(Math.random() % 10 * 10),
       axisY: Math.ceil(Math.random() % 10 * 10)
     };
-    this.simulationAccessService.addNewObstacle(obstacle).subscribe((data) => {
+    this.simulationAccessService.addNewObstacle(obstacle).pipe(first()).subscribe(() => {
     });
   }
 
-  getList() {
-    this.simulationAccessService.getObjectList().subscribe((data: any) => {
-      this.creatures = data;
-    });
+  refresh() {
+    this.ref.detectChanges();
   }
 
-  checkIfOpen(obj) {
-    return this.openObjects.indexOf(obj) > -1;
-  }
-
-  toggleObject(obj) {
-    if (this.openObjects.indexOf(obj.id) > -1) {
-      this.openObjects.splice(this.openObjects.indexOf(obj.id), 1);
+  getListAndUpdate() {
+    if (!this.tempData.length) {
+      this.simulationAccessService.getObjectList().pipe(first()).subscribe((data: any) => {
+        this.creatures = data;
+      });
     } else {
-      this.openObjects.push(obj.id);
+      this.creatures = [...this.tempData];
+    }
+    this.tempData = [];
+  }
+
+  isOpened(creatureId) {
+    return this.openedCreaturesData.indexOf(creatureId) !== -1;
+  }
+
+  toggleExtendedData(creatureId) {
+    if (this.isOpened(creatureId)) {
+      this.openedCreaturesData.splice(this.openedCreaturesData.indexOf(creatureId), 1);
+    } else {
+      this.openedCreaturesData.push(creatureId);
     }
   }
 }

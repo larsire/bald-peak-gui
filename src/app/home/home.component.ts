@@ -1,21 +1,25 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-
+import { Component, OnInit } from '@angular/core';
+import { NewsService } from '../services/news.service';
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.sass"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
+  constructor(private newsService: NewsService) { }
 
-  constructor(private router: Router) { }
-
-  pages = ["simulation", "contact", "playground"];
+  newsList: any[];
 
   ngOnInit() {
+    this.newsService.getNews().subscribe((newsList: any[]) => {
+      this.newsList = newsList;
+    });
   }
 
-  goTo(page) {
-    this.router.navigate([page]);
+  trackByFunction(index, item) {
+    if (!index) {
+      return null;
+    }
+    return item.id;
   }
 }

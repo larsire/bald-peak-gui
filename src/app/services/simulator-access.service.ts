@@ -1,26 +1,32 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class SimulatorAccessService {
+  serverURL = 'http://localhost:3000'
+
   constructor(private http: HttpClient) {
   }
 
   createNewCreature(creatureData) {
-    return this.http.post("http://localhost:3000/creature/add", creatureData);
+    return this.http.post(this.serverURL + '/creature/add', creatureData);
   }
 
   getObjectList() {
-    return this.http.get("http://localhost:3000");
+    return this.http.get(this.serverURL);
   }
 
   moveCreature(moveObject) {
-    return this.http.post("http://localhost:3000/creature/move", moveObject);
+    return this.http.post(this.serverURL + '/creature/move', moveObject);
   }
 
   addNewObstacle(obstacle) {
-    return this.http.post("http://localhost:3000/obstacle/add/", obstacle);
+    return this.http.post(this.serverURL + '/obstacle/add/', obstacle);
+  }
+
+  addItem(userId, itemToAdd) {
+    return this.http.post(this.serverURL + `/item/add/{$userId}`, itemToAdd);
   }
 }

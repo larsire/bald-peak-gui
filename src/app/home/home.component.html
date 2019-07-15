@@ -1,3 +1,5 @@
 <div>
-  <button *ngFor="let page of pages" (click)="goTo(page)">{{page}}</button>
+  <div *ngFor="let news of newsList; trackBy trackByFunction" class="news">
+    {{news.text}}
+  </div>
 </div>

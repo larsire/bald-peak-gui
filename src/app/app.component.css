@@ -1,5 +1,12 @@
 .page {
-  padding-left: 65px;
-  padding-right: 50px;
+  margin-left: 90px;
+  margin-right: 75px;
+  position: fixed;
+  top: -10px;
+  background: #fff;
+  height: 100vh;
+  overflow: auto;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
 }
 /*# sourceMappingURL=app.component.css.map */

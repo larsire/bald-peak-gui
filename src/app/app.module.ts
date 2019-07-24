@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import localePL from '@angular/common/locales/pl';
+import localePLExtra from '@angular/common/locales/extra/pl';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -22,6 +25,12 @@ import { CreatureInventoryComponent } from './creature-inventory/creature-invent
 import { PlaygroundComponent } from './playground/playground.component';
 import { AnimationsComponent } from './playground/animations/animations.component';
 import { FormComponent } from './playground/form/form.component';
+import { NotesComponent } from './notes/notes.component';
+import { AboutComponent } from './about/about.component';
+import { NotesDetailsComponent } from './notes/notes-details/notes-details.component';
+import { NotesListComponent } from './notes/notes-list/notes-list.component';
+
+registerLocaleData(localePL, 'pl', localePLExtra);
 
 @NgModule({
   declarations: [
@@ -38,6 +47,10 @@ import { FormComponent } from './playground/form/form.component';
     PlaygroundComponent,
     AnimationsComponent,
     FormComponent,
+    NotesComponent,
+    AboutComponent,
+    NotesDetailsComponent,
+    NotesListComponent,
   ],
   imports: [
     FormsModule,
@@ -50,7 +63,8 @@ import { FormComponent } from './playground/form/form.component';
     MatButtonModule,
     MatCheckboxModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient,
+    { provide: LOCALE_ID, useValue: 'pl' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

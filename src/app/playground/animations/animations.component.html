@@ -1,0 +1,25 @@
+<div class="playground">
+  <p>
+    playground works!
+  </p>
+
+
+  <button (click)="toAnimate()">toAnimate</button>
+  <button (click)="toShrink()">toShrink</button>
+  <button (click)="addDummy()">new dummy</button>
+  {{state}}
+
+  <div class="target-dummy" [@divState]="state" 
+    (@divState.start)="animationStarted($event)"
+    (@divState.done)="animationEnded($event)">
+
+  </div>
+  <br/>
+  <div class="target-dummy" [@wildState]="wildState">
+
+  </div>
+
+  <div class="target-dummy" [@testState2]="testState" *ngFor="let dummy of dummies">
+
+  </div>
+</div>

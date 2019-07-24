@@ -1,0 +1,7 @@
+<button mat-raised-button color="primary" [routerLink]="['animations']">Animations</button>
+<button mat-raised-button color="primary" [routerLink]="['test']">Test</button>
+<button mat-raised-button color="primary" [routerLink]="['forms']">Forms</button>
+
+<main [@routeAnimations]="prepareRoute(childOutlet)" class="page">
+  <router-outlet #childOutlet="outlet"></router-outlet>
+</main>

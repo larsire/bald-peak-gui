@@ -1,0 +1,9 @@
+<div class="list">
+  <div *ngFor="let news of newsList; trackBy trackByFunction" class="news" (click)="showDetails(news)">
+    <h4>{{news.title}}</h4>
+    <h5>{{news.date | date:shortDate}}</h5>
+    <p>
+      {{news.text}}
+    </p>
+  </div>
+</div>

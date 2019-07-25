@@ -12,6 +12,7 @@ import { NotesComponent } from './notes/notes.component';
 import { AboutComponent } from './about/about.component';
 import { NotesDetailsComponent } from './notes/notes-details/notes-details.component';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
+import { DatepickerPageComponent } from './playground/datepicker-page/datepicker-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { animation: 'slideIn' }  },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent, data: { animation: 'slideIn' }  },
   { path: 'simulation', component: CreaturePanelComponent, data: { animation: 'slideIn' }  },
   { path: 'playground', component: PlaygroundComponent, data: { animation: 'slideIn' }, children: [
+    { path: 'datepicker', component: DatepickerPageComponent, data: {animation: 'slideIn'} },
     { path: 'animations', component: AnimationsComponent, data: { animation: 'fadeIn'}},
     { path: 'test', component: TestPageComponent, data: { animation: 'fadeIn' }, children: [
         {

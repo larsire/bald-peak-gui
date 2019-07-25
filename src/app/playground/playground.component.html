@@ -1,7 +1,10 @@
-<button mat-raised-button color="primary" [routerLink]="['animations']">Animations</button>
-<button mat-raised-button color="primary" [routerLink]="['test']">Test</button>
-<button mat-raised-button color="primary" [routerLink]="['forms']">Forms</button>
+<div>
+  <button mat-raised-button color="primary" [routerLink]="['animations']">Animations</button>
+  <button mat-raised-button color="primary" [routerLink]="['test']">Test</button>
+  <button mat-raised-button color="primary" [routerLink]="['forms']">Forms</button>
+  <button mat-raised-button color="primary" [routerLink]="['datepicker']">Datepicker</button>
 
-<main [@routeAnimations]="prepareRoute(childOutlet)" class="page">
-  <router-outlet #childOutlet="outlet"></router-outlet>
-</main>
+  <main [@routeAnimations]="prepareRoute(childOutlet)" class="page">
+    <router-outlet #childOutlet="outlet"></router-outlet>
+  </main>
+</div>

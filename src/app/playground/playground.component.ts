@@ -15,9 +15,9 @@ export class PlaygroundComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    if (this.router.routerState.snapshot.url !== "/playground") {
-      this.router.navigate(["/playground"]);
-    }
+    // if (this.router.routerState.snapshot.url !== "/playground") {
+    //   this.router.navigate(["/playground"]);
+    // }
   }
 
   prepareRoute(outlet: RouterOutlet) {

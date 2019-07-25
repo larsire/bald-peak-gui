@@ -29,6 +29,9 @@ import { NotesComponent } from './notes/notes.component';
 import { AboutComponent } from './about/about.component';
 import { NotesDetailsComponent } from './notes/notes-details/notes-details.component';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
+import { DatepickerComponent } from './playground/datepicker-page/datepicker/datepicker.component';
+import { DatepickerPageComponent } from './playground/datepicker-page/datepicker-page.component';
+import { TimepickerComponent } from './playground/datepicker-page/datepicker/timepicker/timepicker.component';
 
 registerLocaleData(localePL, 'pl', localePLExtra);
 
@@ -51,6 +54,9 @@ registerLocaleData(localePL, 'pl', localePLExtra);
     AboutComponent,
     NotesDetailsComponent,
     NotesListComponent,
+    DatepickerComponent,
+    DatepickerPageComponent,
+    TimepickerComponent,
   ],
   imports: [
     FormsModule,

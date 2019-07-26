@@ -1,0 +1,20 @@
+@import "../../../../../assets/constants.sass";
+
+.day-label-bar, .week, .calendar
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .day
+        width: 14.28%;
+.day
+    text-align: center;
+    &.other-month
+        color: #aaa;
+.calendar
+    .day
+        &:hover
+            background: $main-color;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;

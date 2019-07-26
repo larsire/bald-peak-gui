@@ -1,0 +1,17 @@
+<div class="time-picker">
+  <div class="time-picker-field">
+    <input type="number" min="0" max="23" [(ngModel)]="hours" (input)="updateHours($event)"/>
+    <div class="controls">
+      <button><i class="icon-up-open" (click)="nextHour()"></i></button>
+      <button><i class="icon-down-open" (click)="prevHour()"></i></button>
+    </div>
+  </div>
+  <span>:</span>
+  <div class="time-picker-field">
+    <input type="number" [(ngModel)]="minutes" min="0" max="59"  (input)="updateMinutes($event)"/>
+    <div class="controls">
+      <button><i class="icon-up-open" (click)="nextMinute()"></i></button>
+      <button><i class="icon-down-open" (click)="prevMinute()"></i></button>
+    </div>
+  </div>
+</div>

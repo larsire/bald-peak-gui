@@ -1,0 +1,39 @@
+@import "../../../../assets/constants.sass";
+
+$standard-line-height: 40px;
+$small-line-height: 25px;
+.datepicker-window 
+    width: 250px;
+    border: 1px solid #ddd;
+    .year-bar, .month-bar
+        height: $standard-line-height;
+        display: flex;
+        justify-content: space-between;
+        line-height: $standard-line-height;
+        span
+            &:hover
+                cursor: default;
+        button 
+            background: transparent;
+            border: 0;
+            height: $standard-line-height;
+            width: $standard-line-height;
+            &:hover
+                cursor: pointer;
+    .year-bar
+        height: $small-line-height;
+        line-height: $small-line-height;
+        font-size: small;
+        button
+            height: $small-line-height;
+    .control-bar
+        text-align: center;
+        button
+            height: $standard-line-height;
+            background: $main-color;
+            border: 0;
+            font-size: 0.8em;
+            border-radius: 5px;
+            font-weight: bold;
+            &:hover
+                cursor: pointer;

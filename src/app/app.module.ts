@@ -32,6 +32,7 @@ import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { DatepickerComponent } from './playground/datepicker-page/datepicker/datepicker.component';
 import { DatepickerPageComponent } from './playground/datepicker-page/datepicker-page.component';
 import { TimepickerComponent } from './playground/datepicker-page/datepicker/timepicker/timepicker.component';
+import { CalendarComponent } from './playground/datepicker-page/datepicker/calendar/calendar.component';
 
 registerLocaleData(localePL, 'pl', localePLExtra);
 
@@ -57,6 +58,7 @@ registerLocaleData(localePL, 'pl', localePLExtra);
     DatepickerComponent,
     DatepickerPageComponent,
     TimepickerComponent,
+    CalendarComponent,
   ],
   imports: [
     FormsModule,

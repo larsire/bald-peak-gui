@@ -9,12 +9,14 @@
         width: 14.28%;
 .day
     text-align: center;
+    border-radius: 10px;
     &.other-month
         color: #aaa;
+    &.active-day
+        background: $secondary-color;
 .calendar
     .day
         &:hover
             background: $main-color;
             color: white;
-            border-radius: 10px;
             cursor: pointer;

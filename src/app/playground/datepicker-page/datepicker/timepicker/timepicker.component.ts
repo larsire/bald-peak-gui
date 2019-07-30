@@ -13,7 +13,6 @@ export class TimepickerComponent implements OnInit, OnChanges {
   hours: number;
 
   ngOnInit() {
-    this.updateInnerModels();
   }
 
   ngOnChanges() {

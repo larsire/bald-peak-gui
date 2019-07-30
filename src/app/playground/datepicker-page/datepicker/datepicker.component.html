@@ -3,7 +3,7 @@
       <button (click)="prevYear()">
           <i class="icon-left-open" ></i>
         </button>
-        <span>{{model.getFullYear()}}</span>
+        <span>{{innerModel.getFullYear()}}</span>
         <button (click)="nextYear()">
           <i class="icon-right-open" ></i>
         </button>
@@ -12,7 +12,7 @@
     <button (click)="prevMonth()">
       <i class="icon-left-open" ></i>
     </button>
-    <span>{{model.toLocaleString('default', { month: 'long' })}}</span>
+    <span>{{innerModel.toLocaleString('default', { month: 'long' })}}</span>
     <button (click)="nextMonth()">
       <i class="icon-right-open" ></i>
     </button>
@@ -24,4 +24,4 @@
   </div>
 </div>
 
-<button (click)="showButton()">Publish Later | {{model | date: "dd-MM HH:mm"}}</button>
+<button (click)="showButton()">Publish Later | <span *ngIf="model">{{model | date: "dd-MM HH:mm"}}</span></button>

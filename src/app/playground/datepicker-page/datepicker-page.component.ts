@@ -10,9 +10,8 @@ export class DatepickerPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.model = new Date();
   }
-  
+
   model: Date;
 
   submitForm() {

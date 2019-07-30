@@ -1,4 +1,4 @@
-<div class="datepicker-window">
+<div *ngIf="showCalendar" class="datepicker-window">
   <div class="year-bar">
       <button (click)="prevYear()">
           <i class="icon-left-open" ></i>
@@ -17,9 +17,11 @@
       <i class="icon-right-open" ></i>
     </button>
   </div>
-  <app-calendar [(data)]="model"></app-calendar>
-  <app-timepicker [(data)]="model"></app-timepicker>
+  <app-calendar [(data)]="innerModel"></app-calendar>
+  <app-timepicker [(data)]="innerModel"></app-timepicker>
   <div class="control-bar">
     <button (click)="submit()">Submit</button>
   </div>
 </div>
+
+<button (click)="showButton()">Publish Later | {{model | date: "dd-MM HH:mm"}}</button>

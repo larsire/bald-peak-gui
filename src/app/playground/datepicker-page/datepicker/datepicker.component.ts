@@ -8,24 +8,46 @@ import { Input } from '@angular/core';
 })
 export class DatepickerComponent implements OnInit {
   @Input() model: Date;
+  @Input() submitAction: Function;
+  showCalendar = false;
+  innerModel: Date;
+
+  showButton() {
+    if(!this.model) {
+      this.innerModel = new Date();
+    } else {
+      this.innerModel = new Date(this.model);
+    }
+
+    this.showCalendar = true;
+  }
 
   constructor() { }
   ngOnInit() {
   }
 
   nextYear() {
-    this.model.setFullYear(this.model.getFullYear() + 1);
+    this.innerModel.setFullYear(this.innerModel.getFullYear() + 1);
   }
 
   prevYear() {
-    this.model.setFullYear(this.model.getFullYear() - 1);
+    this.innerModel.setFullYear(this.innerModel.getFullYear() - 1);
   }
 
   nextMonth() {
-    this.model.setMonth(this.model.getMonth() + 1);
+    this.innerModel.setMonth(this.innerModel.getMonth() + 1);
   }
 
   prevMonth() {
-    this.model.setMonth(this.model.getMonth() - 1);
+    this.innerModel.setMonth(this.innerModel.getMonth() - 1);
+  }
+
+  submit() {
+    this.model = new Date(this.innerModel);
+    this.showCalendar = false;
+    
+    if(this.submitAction && typeof this.submitAction === 'function') {
+      this.submitAction();
+    }
   }
 }

@@ -12,11 +12,13 @@ export class DatepickerPageComponent implements OnInit {
   ngOnInit() {
     this.model = new Date();
   }
+  
   model: Date;
 
-  showModel() {
-    console.log(this.model);
+  submitForm() {
+    console.log("Submitting form with model : ", this.model);
   }
+
   generateDate() {
     var year = Math.floor((Math.random() * (+2052 - +1992))) + 1992;
     var month = Math.floor((Math.random() * (+11 - +0))) + 0;

@@ -1,7 +1,4 @@
 <p>
-  <app-datepicker [(model)]="model"></app-datepicker>
-  <button (click)="showModel()"> test </button>
+  <app-datepicker [(model)]="model" [submitAction]="submitForm"></app-datepicker>
   <button (click)="generateDate()"> generate </button>
-
-  {{model | json}}
 </p>

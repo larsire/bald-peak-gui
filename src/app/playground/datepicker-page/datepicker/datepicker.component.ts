@@ -45,7 +45,7 @@ export class DatepickerComponent implements OnInit {
   submit() {
     this.model = new Date(this.innerModel);
     this.showCalendar = false;
-    
+
     if(this.submitAction && typeof this.submitAction === 'function') {
       this.submitAction();
     }

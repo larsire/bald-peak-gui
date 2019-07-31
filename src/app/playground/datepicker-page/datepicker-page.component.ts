@@ -10,8 +10,12 @@ export class DatepickerPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.min = new Date(2019, 6, 15);
+    this.max = new Date(2020, 1, 5);
   }
 
+  min: Date;
+  max: Date;
   model: Date;
 
   submitForm() {

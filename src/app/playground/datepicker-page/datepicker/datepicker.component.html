@@ -1,24 +1,24 @@
 <div *ngIf="showCalendar" class="datepicker-window">
   <div class="year-bar">
-      <button (click)="prevYear()">
+      <button (click)="prevYear()" [disabled]="!checkPrevYearAvailable()">
           <i class="icon-left-open" ></i>
         </button>
         <span>{{innerModel.getFullYear()}}</span>
-        <button (click)="nextYear()">
+        <button (click)="nextYear()" [disabled]="!checkNextYearAvailable()">
           <i class="icon-right-open" ></i>
         </button>
   </div>
   <div class="month-bar">
-    <button (click)="prevMonth()">
+    <button (click)="prevMonth()" [disabled]="!checkPrevMonthAvailable()">
       <i class="icon-left-open" ></i>
     </button>
     <span>{{innerModel.toLocaleString('default', { month: 'long' })}}</span>
-    <button (click)="nextMonth()">
+    <button (click)="nextMonth()" [disabled]="!checkNextMonthAvailable()">
       <i class="icon-right-open" ></i>
     </button>
   </div>
-  <app-calendar [(data)]="innerModel"></app-calendar>
-  <app-timepicker [(data)]="innerModel"></app-timepicker>
+  <app-calendar [(data)]="innerModel" [min]="min" [max]="max"></app-calendar>
+  <app-timepicker [(data)]="innerModel" [min]="min" [max]="max"></app-timepicker>
   <div class="control-bar">
     <button (click)="submit()">Submit</button>
   </div>

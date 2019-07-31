@@ -7,6 +7,8 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 })
 export class TimepickerComponent implements OnInit, OnChanges {
   @Input() data: Date;
+  @Input() min: Date;
+  @Input() max: Date;
   constructor() { }
 
   minutes: number;

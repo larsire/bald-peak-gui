@@ -45,24 +45,45 @@ export class TimepickerComponent implements OnInit, OnChanges {
     }
     this.data.setHours(this.hours);
   }
-
+  
   nextHour() {
-    this.data.setHours(this.data.getHours() + 1);
-    this.updateInnerModels();
+    if(this.checkIfAvailable(this.data.getHours() + 1, this.data.getMinutes())) {
+      this.data.setHours(this.data.getHours() + 1);
+      this.updateInnerModels();
+    }
   }
 
   prevHour() {
-    this.data.setHours(this.data.getHours() - 1);
-    this.updateInnerModels();
+    if(this.checkIfAvailable(this.data.getHours() - 1, this.data.getMinutes())) {
+      this.data.setHours(this.data.getHours() - 1);
+      this.updateInnerModels();
+    }
   }
 
   nextMinute() {
-    this.data.setMinutes(this.data.getMinutes() + 1);
-    this.updateInnerModels();
+    if(this.checkIfAvailable(this.data.getHours(), this.data.getMinutes() + 1)) {
+      this.data.setMinutes(this.data.getMinutes() + 1);
+      this.updateInnerModels();
+    }
   }
 
   prevMinute() {
-    this.data.setMinutes(this.data.getMinutes() - 1);
-    this.updateInnerModels();
+    if(this.checkIfAvailable(this.data.getHours(), this.data.getMinutes() - 1)) {
+      this.data.setMinutes(this.data.getMinutes() - 1);
+      this.updateInnerModels();
+    }
+  }
+
+  checkIfAvailable(targetHours, targetMinutes) {
+    const tempDate = new Date(this.data.getFullYear(), this.data.getMonth(), this.data.getDate(), targetHours, targetMinutes);
+    const tempMax = new Date(this.max.getFullYear(), this.max.getMonth(), this.max.getDate());
+    const tempMin = new Date(this.min.getFullYear(), this.min.getMonth(), this.min.getDate());
+    let valid = true;
+    if( tempMax.getTime() < tempDate.getTime()) {
+      valid = false;
+    } else if (tempMin.getTime() > tempDate.getTime()) {
+      valid = false;
+    }
+    return valid;
   }
 }

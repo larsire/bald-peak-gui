@@ -15,13 +15,13 @@ import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { DatepickerPageComponent } from './playground/datepicker-page/datepicker-page.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, data: { animation: 'slideIn' }  },
+  { path: 'home', component: HomeComponent},
   { path: 'notes', component: NotesComponent, data: { animation: 'slideIn' }, children: [
     { path: '', component: NotesListComponent, data: {animation: 'fadein'}},
     { path: ':id/details', component: NotesDetailsComponent, data: { animation: 'fadeIn'} }
   ]},
-  { path: 'about', component: AboutComponent, data: { animation: 'slideIn' }  },
-  { path: 'simulation', component: CreaturePanelComponent, data: { animation: 'slideIn' }  },
+  { path: 'about', component: AboutComponent},
+  { path: 'simulation', component: CreaturePanelComponent},
   { path: 'playground', component: PlaygroundComponent, data: { animation: 'slideIn' }, children: [
     { path: 'datepicker', component: DatepickerPageComponent, data: {animation: 'slideIn'} },
     { path: 'animations', component: AnimationsComponent, data: { animation: 'fadeIn'}},
@@ -37,7 +37,7 @@ const routes: Routes = [
       ]},
     { path: 'forms', component: FormComponent }
   ]},
-  { path: '**',   redirectTo: '/home', pathMatch: 'full', data: { animation: 'slideIn' }  }
+  { path: '**',   redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

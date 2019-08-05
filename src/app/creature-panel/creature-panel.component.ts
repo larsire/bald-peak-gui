@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { SimulatorAccessService } from '../services/simulator-access.service';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { WebsocketService } from '../services/websocket.service';
 
 @Component({
   selector: 'app-creature-panel',
@@ -12,16 +13,14 @@ import { first } from 'rxjs/operators';
 export class CreaturePanelComponent implements OnInit {
   constructor(
     private simulationAccessService: SimulatorAccessService,
-    private ref: ChangeDetectorRef) {
+    private ref: ChangeDetectorRef,
+    private socket: WebsocketService) {
     this.creature = {};
     this.openedCreaturesData = [];
-
-    setInterval(() => {
-      if (this.tempData.length) {
-        this.creatures = [...this.tempData];
-        this.tempData = [];
-      }
-    }, 1000);
+    this.socket.creatureList.pipe().subscribe((data)=>{
+      if(data && data.length)
+        this.creatures = data;
+    })
   }
 
   tempData = [];

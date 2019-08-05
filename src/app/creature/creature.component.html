@@ -1,5 +1,5 @@
 <div class="creature" [ngClass]="{'not-alive': !data.isAlive}">
-    <div class="base-info">
+    <div class="base-info" (click)="toggle()">
         <div> 
             <div>
                 <img *ngIf="data.type === 'obstacle'" src="../../assets/images/Snow mountain free icon 1.svg">
@@ -24,10 +24,5 @@
         </div>
     </div>
 
-    <div class="invetory" *ngIf="showExtendedData">
-        EQ : 
-        <div *ngFor="let item of data.inventory.equipment">
-
-        </div>
-    </div>
+    <app-creature-inventory [inventory]="data.inventory" *ngIf="showExtendedData"></app-creature-inventory>
 </div>

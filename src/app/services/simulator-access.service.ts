@@ -27,6 +27,10 @@ export class SimulatorAccessService {
   }
 
   addItem(userId, itemToAdd) {
-    return this.http.post(this.serverURL + `/item/add/{$userId}`, itemToAdd);
+    var obj = {
+      id: userId,
+      itemId: itemToAdd
+    };
+    return this.http.post(this.serverURL + '/item/add/' , obj);
   }
 }

@@ -11,7 +11,8 @@ export class CreatureComponent implements OnInit {
   @Input() data: { name: string, id: number, creationDate: Date, inventory: any };
   @Input() showExtendedData: boolean;
   @Output() refreshComponent = new EventEmitter();
-
+  @Output() toggleData = new EventEmitter();
+  
   constructor(private simulationAccessService: SimulatorAccessService) {
       this.inventory = new Array<any>();
       for (let i = 0; i < 10; i++) {
@@ -22,6 +23,10 @@ export class CreatureComponent implements OnInit {
   inventory: Array<any>;
 
   ngOnInit() {
+  }
+
+  toggle() {
+    this.toggleData.emit()
   }
 
   moveCreature(event, direction) {

@@ -13,12 +13,16 @@ export class NotesDetailsComponent implements OnInit {
   constructor(private newsService: NewsService, private router: Router, private activeRoute: ActivatedRoute) { 
   }
   id: string;
-  newsDetails: any;
+  newsDetails = {};
 
   ngOnInit() {
     this.id = this.activeRoute.snapshot.paramMap.get('id');
     this.newsService.getNewsById(this.id).subscribe((news: any) => {
       this.newsDetails = news;
     });
+  }
+
+  goBack() {
+    this.router.navigate(['notes'])
   }
 }

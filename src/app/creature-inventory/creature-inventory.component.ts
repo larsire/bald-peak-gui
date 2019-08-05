@@ -16,6 +16,8 @@ export class CreatureInventoryComponent implements OnInit {
   }
 
   addTestItem() {
-    this.simulationAccessService.addItem(1, {});
+    this.simulationAccessService.addItem(1, 2).subscribe(()=>{}, (err)=> {
+      console.log(err);
+    });
   }
 }
